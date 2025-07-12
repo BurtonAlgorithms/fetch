@@ -27,7 +27,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
         </Avatar>
       )}
       <div
-        className={`max-w-[75%] p-3 rounded-lg ${
+        className={`max-w-[75%] p-3 rounded-lg break-words overflow-wrap-anywhere ${
           isUser ? "bg-primary text-primary-foreground" : "bg-muted"
         }`}
       >
