@@ -7,10 +7,10 @@ export async function getContext(query: string) {
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
     pineconeIndex: index,
   });
-  const results = await vectorStore.similaritySearch(query, 3);
+  const results = await vectorStore.similaritySearch(query, 6);
   return results
     .map((r) => {
-      return `Source: ${r.metadata.source}\n\n Content: ${r.metadata.content}`;
+      return `Source: ${r.metadata.source}\n\n Content: ${r.pageContent}`;
     })
     .join("\n\n");
 }
