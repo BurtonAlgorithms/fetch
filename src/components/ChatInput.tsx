@@ -21,7 +21,7 @@ export function ChatInput({
       <Textarea
         value={input}
         onChange={handleInputChange}
-        placeholder="Type your message..."
+        placeholder="Ask a question..."
         className="flex-1 min-h-[40px]"
         disabled={isLoading}
         onKeyDown={(e) => {

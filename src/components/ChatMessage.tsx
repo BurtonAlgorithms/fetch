@@ -99,19 +99,25 @@ export function ChatMessage({ message }: ChatMessageProps) {
 
   return (
     <div
-      className={`flex items-start mb-4 ${isUser ? "justify-end" : ""}`}
+      className={`flex w-full ${
+        isUser ? "justify-end pr-4" : "justify-center"
+      }`}
     >
       <div
-        className={`max-w-[85%] rounded-lg break-words overflow-wrap-anywhere ${
+        className={`${
+          isUser ? "max-w-[75%]" : "max-w-[85%]"
+        } rounded-lg ${
           isUser
-            ? "bg-primary text-primary-foreground p-3"
+            ? "bg-[#f0efef] text-primary-foreground p-3"
             : "bg-white border border-slate-200 p-4"
         }`}
+        style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
       >
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
             // Code blocks with syntax highlighting
+            // @ts-expect-error - react-markdown types issue
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
               const codeString = String(children).replace(/\n$/, "");
@@ -131,9 +137,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
                       ${
                         isUser
                           ? "bg-primary-foreground/20 text-primary-foreground"
-                          : isCopyable
-                          ? "bg-gray-200 text-slate-800"
-                          : "bg-slate-200 text-slate-800"
+                          : "bg-[#f0efef] text-slate-800 font-medium"
                       }
                     `}
                     {...props}
@@ -184,14 +188,22 @@ export function ChatMessage({ message }: ChatMessageProps) {
             // Lists
             ul({ children }) {
               return (
-                <ul className="list-disc list-outside ml-5 space-y-1 my-3 leading-relaxed">
+                <ul
+                  className={`list-disc list-outside ml-5 space-y-1 my-3 leading-relaxed ${
+                    isUser ? "text-slate-900 font-medium" : ""
+                  }`}
+                >
                   {children}
                 </ul>
               );
             },
             ol({ children }) {
               return (
-                <ol className="list-decimal list-outside ml-5 space-y-1 my-3 leading-relaxed">
+                <ol
+                  className={`list-decimal list-outside ml-5 space-y-1 my-3 leading-relaxed ${
+                    isUser ? "text-slate-900 font-medium" : ""
+                  }`}
+                >
                   {children}
                 </ol>
               );
@@ -202,7 +214,11 @@ export function ChatMessage({ message }: ChatMessageProps) {
             // Paragraphs
             p({ children }) {
               return (
-                <p className="mb-3 last:mb-0 leading-relaxed text-sm text-slate-700">
+                <p
+                  className={`mb-3 last:mb-0 leading-relaxed text-sm ${
+                    isUser ? "text-slate-900 font-medium" : "text-slate-800"
+                  }`}
+                >
                   {children}
                 </p>
               );

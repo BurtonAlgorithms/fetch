@@ -5,7 +5,7 @@ import { useChat } from "ai/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageSquare, X, RotateCcw } from "lucide-react";
+import { MessageSquare, X, RotateCcw, Sparkles } from "lucide-react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { LoadingIndicator } from "./LoadingIndicator";
@@ -59,10 +59,13 @@ export function ChatWidget() {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 rounded-full p-0 w-12 h-12 shadow-lg"
+          className="font-medium cursor-pointer"
           variant="default"
         >
-          <MessageSquare className="w-6 h-6" />
+
+            <Sparkles className="w-6 h-6" />
+            Ask AI
+
         </Button>
       )}
       <AnimatePresence>
@@ -71,10 +74,13 @@ export function ChatWidget() {
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            className="fixed bottom-20 right-4 w-[500px] h-[600px] bg-background border rounded-lg shadow-xl flex flex-col overflow-hidden"
+            className="fixed bottom-10 right-4 w-[500px] h-[600px] bg-background border rounded-lg shadow-xl flex flex-col overflow-hidden z-10"
           >
             <div className="p-4 border-b flex items-center justify-between">
-              <h3 className="font-semibold">Ask about Fetch.ai Docs</h3>
+              <h3 className="font-semibold text-lg flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-blue-900" />
+                Assistant
+              </h3>
               <div className="flex items-center gap-2">
                 <Button
                   variant="ghost"
@@ -97,7 +103,7 @@ export function ChatWidget() {
               className="h-[430px] overflow-hidden"
               ref={scrollAreaRef}
             >
-              <div className="p-4 flex flex-col gap-2">
+              <div className="p-4 flex flex-col space-y-4">
                 {messages.map((message) => (
                   <ChatMessage key={message.id} message={message} />
                 ))}

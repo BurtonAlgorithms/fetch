@@ -28,7 +28,7 @@ Markdown formatting guidelines for clean, professional documentation:
 
 **Code and Technical Elements:**
 - Use \`backticks\` for copyable elements: commands, URLs, code snippets, installation instructions
-  - Examples: \`npm install -g mint\`, \`localhost:3000\`, \`git clone\`, \`https://example.com\`
+  - Examples: \`npm install -g node\`, \`localhost:3000\`, \`git clone\`, \`https://example.com\`
 - Use \`backticks\` for file names and UI elements (these will be styled but not copyable)
   - Examples: \`index.mdx\`, \`Settings\`, \`.env\`, \`package.json\`
 - Use code blocks with language specification for multi-line code:
