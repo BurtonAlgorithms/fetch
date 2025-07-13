@@ -17,6 +17,7 @@ export function ChatInput({
   isLoading,
 }: ChatInputProps) {
   return (
+    <>
     <form onSubmit={handleSubmit} className="p-4 border-t flex space-x-2">
       <Textarea
         value={input}
@@ -33,7 +34,13 @@ export function ChatInput({
       />
       <Button type="submit" disabled={isLoading}>
         <Send className="w-4 h-4" />
-      </Button>
-    </form>
+        </Button>
+      </form>
+      <div className="text-xs text-gray-400 text-center pb-3">
+        <p>
+          This model can make mistakes. Check important info
+        </p>
+      </div>
+    </>
   );
 }
