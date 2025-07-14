@@ -99,13 +99,13 @@ export function ChatMessage({ message }: ChatMessageProps) {
 
   return (
     <div
-      className={`flex max-w-[480px] ${
+      className={`flex max-w-[480px] pr-3 ${
         isUser ? "justify-end pr-4" : "justify-center"
       }`}
     >
       <div
         className={`${
-          isUser ? "max-w-[75%]" : "max-w-[85%]"
+          isUser ? "max-w-[75%]" : "max-w-[90%] pr-1"
         } rounded-lg ${
           isUser
             ? "bg-[#f0efef] text-primary-foreground p-3"
@@ -136,7 +136,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
                       px-1.5 py-0.5 rounded text-xs font-mono
                       ${
                         isUser
-                          ? "bg-primary-foreground/20 text-primary-foreground"
+                          ? "bg-primary-foreground/20 text-black text-wrap"
                           : "bg-[#f0efef] text-slate-800 font-medium"
                       }
                     `}
