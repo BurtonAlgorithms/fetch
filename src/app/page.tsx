@@ -1,9 +1,11 @@
-import Image from "next/image";
+import { ChatWidget } from "@/components/ChatWidget";
 
-export default function Home() {
+export default function ChatPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <h1 className="text-4xl font-bold">Welcome to Fetch.ai Chat App</h1>
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+      <main>
+        <ChatWidget />
+      </main>
     </div>
   );
 }
