@@ -99,7 +99,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
 
   return (
     <div
-      className={`flex w-full ${
+      className={`flex max-w-[480px] ${
         isUser ? "justify-end pr-4" : "justify-center"
       }`}
     >
