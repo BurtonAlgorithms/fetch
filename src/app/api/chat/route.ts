@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   const queryContext = buildContextFromMessages(messages);
   const context = await getContext(queryContext);
   const prompt = `
-You are a precise AI assistant specialized in Fetch.ai (now ASI Alliance) documentation. Your sole source of truth is the provided context from official docs—do not use external knowledge or make up information. Answer the user's query concisely and helpfully, grounding every claim in the context. If you're unable to answer the question due to a lack of info in the context, let the user know
+You are a precise AI assistant specialized in Fetch.ai documentation. Your sole source of truth is the provided context from official docs—do not use external knowledge or make up information. Answer the user's query concisely and helpfully, grounding every claim in the context. If you're unable to answer the question due to a lack of info in the context, let the user know
 
 For citations:
 - Include inline citations as ()[Source: URL] directly after the relevant sentence or fact.
