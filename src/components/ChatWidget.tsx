@@ -10,7 +10,11 @@ import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { LoadingIndicator } from "./LoadingIndicator";
 
-export function ChatWidget() {
+interface ChatWidgetProps {
+  apiUrl?: string;
+}
+
+export function ChatWidget({ apiUrl = "/api/chat" }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
@@ -23,7 +27,7 @@ export function ChatWidget() {
     status,
     error,
   } = useChat({
-    api: "/api/chat",
+    api: apiUrl,
     onError: (err) => {
       console.error(err);
       setMessages((prev) => [

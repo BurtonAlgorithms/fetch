@@ -2,12 +2,21 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { ChatWidget } from "@/components/ChatWidget";
 
-export default function initChatWidget(containerId: string) {
+interface ChatWidgetConfig {
+  containerId: string;
+  apiUrl?: string;
+}
+
+export default function initChatWidget(config: string | ChatWidgetConfig) {
+  const { containerId, apiUrl } = typeof config === 'string' 
+    ? { containerId: config, apiUrl: undefined }
+    : config;
+    
   const container = document.getElementById(containerId);
   if (container) {
     createRoot(container).render(
       <React.StrictMode>
-        <ChatWidget />
+        <ChatWidget apiUrl={apiUrl} />
       </React.StrictMode>
     );
   } else {

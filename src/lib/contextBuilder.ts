@@ -4,17 +4,12 @@ type Message = {
   content: string;
 };
 
-/**
- * Estimates the number of tokens in a text string
- * Uses approximation: ~4 characters = 1 token for English text
- */
+
 export function estimateTokens(text: string): number {
   return Math.ceil(text.length / 4);
 }
 
-/**
- * Checks if a message appears to be a follow-up to previous conversation
- */
+// check if message is a follow up
 function isFollowUpMessage(message: string): boolean {
   const followUpPatterns = [
     // Question words that suggest continuation
@@ -30,9 +25,7 @@ function isFollowUpMessage(message: string): boolean {
   return followUpPatterns.some(pattern => pattern.test(message));
 }
 
-/**
- * Checks if a message represents a clear topic change
- */
+// check if message is a topic change
 function isTopicChange(message: string): boolean {
   const topicChangePatterns = [
     // Greetings and conversation starters
@@ -46,10 +39,7 @@ function isTopicChange(message: string): boolean {
   return topicChangePatterns.some(pattern => pattern.test(message));
 }
 
-/**
- * Builds context from recent messages, prioritizing conversation continuity
- * while staying within token limits
- */
+// build context from recent messages
 export function buildContextFromMessages(
   messages: Message[],
   maxTokens: number = 7000
