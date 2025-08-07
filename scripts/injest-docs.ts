@@ -80,8 +80,10 @@ for (const filePath of [
   "docs/agentverse.txt",
   "docs/ASI.txt",
   "docs/flockx.txt",
+  "docs/flockx-api-reference.txt",
   "docs/innovationlab.txt",
   "docs/uagents.txt",
+  "docs/uagents-api-reference.txt"
 ]) {
   ingest(filePath).catch(console.error);
 }
