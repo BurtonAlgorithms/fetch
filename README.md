@@ -21,7 +21,7 @@ A powerful **Retrieval-Augmented Generation (RAG)** powered chat assistant that 
 
 **Backend & AI:**
 
-- [OpenAI GPT-4](https://openai.com/) - Language model for responses
+- [OpenAI GPT-4o](https://openai.com/) - Language model for responses
 - [Vercel AI SDK](<[https://openai.com/](https://ai-sdk.dev/docs/introduction)>) - AI Response Streaming
 - [OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings) - Text vectorization
 - [LangChain](https://langchain.com/) - AI application framework
